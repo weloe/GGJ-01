@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Man_Weapon : MonoBehaviour
 {
+    public float waitTime = 0.02f;
+    public int BulletCnt = 5;
+    private float invokeTime;
     public Transform FirePoint;
     public GameObject BulletPrefabs;
     private Rigidbody2D rig;
@@ -13,14 +16,19 @@ public class Man_Weapon : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            Shoot();
+            StartCoroutine(Shoot(BulletPrefabs));
         }
 
     }
 
-    void Shoot()
+    IEnumerator Shoot(GameObject Bullet)
     {
-        //P1Éä»÷Âß¼­
-        Instantiate(BulletPrefabs, FirePoint.position, FirePoint.rotation);
+        int cnt = BulletCnt;
+        while (cnt > 0)
+        {
+            Instantiate(BulletPrefabs, FirePoint.position, FirePoint.rotation);
+            yield return new WaitForSeconds(waitTime);  //ÑÓ³Ùºó¼ÌÐøÖ´ÐÐ
+            cnt -= 1;
+        }
     }
 }
