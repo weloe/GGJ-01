@@ -31,7 +31,6 @@ public class Player1_Bullet : MonoBehaviour
                 Destroy(gameObject);                
                 break;
 
-
             case "Enemy":
                 ui.player1_DefeatNumChange();
                 enemyHP.EnemyHPLoss();//ПлбЊ->ЫРЭі
