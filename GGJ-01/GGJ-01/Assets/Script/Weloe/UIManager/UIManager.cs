@@ -46,6 +46,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         //²âÊÔ
+<<<<<<< Updated upstream
         if (Input.GetKeyDown(KeyCode.E))
         {
             player1_HPLoss();
@@ -59,6 +60,21 @@ public class UIManager : MonoBehaviour
         {
             player1_DefeatNumChange();
         }
+=======
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    player1_HPLoss();
+        //}
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    player1_HPIncrease();
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    player1_DefeatNumChange();
+        //}
+>>>>>>> Stashed changes
     }
 
     
@@ -84,11 +100,19 @@ public class UIManager : MonoBehaviour
         }
 
         //p1ËÀÍö
+<<<<<<< Updated upstream
         if (player1_HP == 0 )
         {
 
             Time.timeScale = 0;
         }
+=======
+        //if (player1_HP == 0 )
+        //{
+
+        //    Time.timeScale = 0;
+        //}
+>>>>>>> Stashed changes
 
     }
 
@@ -104,17 +128,29 @@ public class UIManager : MonoBehaviour
             {
                 return;
             }
+<<<<<<< Updated upstream
             player1_HPImage[player2_HP].SetActive(false);
+=======
+            player2_HPImage[player2_HP].SetActive(false);
+>>>>>>> Stashed changes
 
         }
 
         //p2ËÀÍö
+<<<<<<< Updated upstream
         if (player2_HP == 0)
         {
 
 
             Time.timeScale = 0;
         }
+=======
+        //if (player2_HP == 0)
+        //{
+
+        //    Time.timeScale = 0;
+        //}
+>>>>>>> Stashed changes
     }
 
 
@@ -169,6 +205,18 @@ public class UIManager : MonoBehaviour
         player2_TextNum.text = player2_DefeatNum.ToString();
     }
 
+<<<<<<< Updated upstream
 
+=======
+    public void DieOrNot()
+    {
+        if (player1_HP == 0 && player2_HP == 0)
+        {
+
+            Time.timeScale = 0;
+        }
+        
+    }
+>>>>>>> Stashed changes
 
 }
