@@ -46,19 +46,19 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         //≤‚ ‘
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            player1_HPLoss();
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            player1_HPIncrease();
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    player1_HPLoss();
+        //}
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    player1_HPIncrease();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            player1_DefeatNumChange();
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    player1_DefeatNumChange();
+        //}
     }
 
     
@@ -84,11 +84,11 @@ public class UIManager : MonoBehaviour
         }
 
         //p1À¿Õˆ
-        if (player1_HP == 0 )
-        {
+        //if (player1_HP == 0 )
+        //{
 
-            Time.timeScale = 0;
-        }
+        //    Time.timeScale = 0;
+        //}
 
     }
 
@@ -104,17 +104,16 @@ public class UIManager : MonoBehaviour
             {
                 return;
             }
-            player1_HPImage[player2_HP].SetActive(false);
+            player2_HPImage[player2_HP].SetActive(false);
 
         }
 
         //p2À¿Õˆ
-        if (player2_HP == 0)
-        {
+        //if (player2_HP == 0)
+        //{
 
-
-            Time.timeScale = 0;
-        }
+        //    Time.timeScale = 0;
+        //}
     }
 
 
@@ -169,6 +168,14 @@ public class UIManager : MonoBehaviour
         player2_TextNum.text = player2_DefeatNum.ToString();
     }
 
+    public void DieOrNot()
+    {
+        if (player1_HP == 0 && player2_HP == 0)
+        {
 
+            Time.timeScale = 0;
+        }
+        
+    }
 
 }
