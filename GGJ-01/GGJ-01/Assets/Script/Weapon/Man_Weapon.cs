@@ -6,14 +6,22 @@ public class Man_Weapon : MonoBehaviour
 {
     public float waitTime = 0.02f;
     public int BulletCnt = 5;
-    private float invokeTime;
+    public float coolDown = 1.0f;
+    private float currentCoolDown;
     public Transform FirePoint;
     public GameObject BulletPrefabs;
-    private Rigidbody2D rig;
-    private Collider2D coll;
+
+    private void Start()
+    {
+        currentCoolDown = coolDown;
+    }
 
     void Update()
     {
+        if (currentCoolDown < coolDown)
+        {
+            currentCoolDown += Time.deltaTime;
+        }
         if (Input.GetButtonDown("Fire2"))
         {
             StartCoroutine(Shoot(BulletPrefabs));
@@ -23,12 +31,16 @@ public class Man_Weapon : MonoBehaviour
 
     IEnumerator Shoot(GameObject Bullet)
     {
-        int cnt = BulletCnt;
-        while (cnt > 0)
+        if (currentCoolDown >= coolDown)
         {
-            Instantiate(BulletPrefabs, FirePoint.position, FirePoint.rotation);
-            yield return new WaitForSeconds(waitTime);  //延迟后继续执行
-            cnt -= 1;
+            currentCoolDown = 0;
+            int cnt = BulletCnt;
+            while (cnt > 0)
+            {
+                Instantiate(BulletPrefabs, FirePoint.position, FirePoint.rotation);
+                yield return new WaitForSeconds(waitTime);  //延迟后继续执行
+                cnt -= 1;
+            }
         }
     }
 }
